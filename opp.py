@@ -11,12 +11,12 @@ api_key = st.sidebar.text_input("Enter Gemini API Key", type="password")
 
 if api_key:
     genai.configure(api_key=api_key)
-    model = genai.GenerativeModel('gemini-pro')
-    
-    user_input = st.text_input("كيفاش نجموا نعاونوا مشروعك اليوم؟")
-    
+  
+    # أستعمل الموديل هذا حصراً لأنه الأكثر استقراراً في النسخة المجانية
+model = genai.GenerativeModel('gemini-1.5-flash')
     if st.button("إرسال"):
         response = model.generate_content(user_input)
         st.markdown(f"**Pioneer AI:** {response.text}")
 else:
+
     st.warning("الرجاء إدخال API Key من Google AI Studio للبدء.")
