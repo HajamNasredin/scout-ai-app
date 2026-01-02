@@ -13,7 +13,8 @@ if api_key:
     try:
         genai.configure(api_key=api_key)
         # استعملنا الاسم الكامل للموديل لتفادي خطأ 404
-        model = genai.GenerativeModel('models/gemini-1.5-flash')
+# التعديل الأضمن: استبدل السطر القديم بهذا
+model = genai.GenerativeModel('gemini-1.5-flash')
         
         user_input = st.text_input("كيفاش نجموا نعاونوا مشروعك اليوم؟")
         
@@ -29,3 +30,4 @@ if api_key:
         st.error(f"خطأ تقني: {e}")
 else:
     st.info("الرجاء إدخال الـ API Key في القائمة الجانبية.")
+
